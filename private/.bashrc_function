@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+function gc(){
+    local branch=$1
+
+    if [ -z ${branch} ]; then
+        echo '缺少分支名称参数'
+    else
+        autoGitCheckOut ${branch}
+    fi
+}
+
+function autoGitCheckOut(){
+    local branch=$1
+
+    if [[ $PWD =~ 'yunkerefactor' ]]; then
+
+        git checkout master
+        git pull
+        git checkout ${branch}
+
+        cd ../yunke-public
+        git checkout master
+        git pull
+        git checkout ${branch}
+
+        cd ../frontend
+        git checkout master
+        git pull
+        git checkout ${branch}
+        sudo npm run build  -- qmyx
+        #sudo npm run build  -- datav
+        #sudo npm run build  -- mysoft_back
+
+        cd ../yunkerefactor
+
+
+
+    elif [[ $PWD =~ 'frontend' ]]; then
+        echo ''
+    fi
+
+}
+
+DAILI_INDEX=1
+function daili(){
+    proxy_1=http://10.5.212.165:8888
+    proxy_2=http://127.0.0.1:33441
+
+    #echo "原代理服务器：$http_proxy"
+
+    if [ $DAILI_INDEX -eq 0 ]; then
+        http_proxy=''
+        DAILI_INDEX=$((DAILI_INDEX+1))
+    elif [ $DAILI_INDEX -eq 1 ]; then
+        http_proxy=$proxy_1
+        DAILI_INDEX=$((DAILI_INDEX+1))
+    else
+        http_proxy=$proxy_2
+        DAILI_INDEX=0
+    fi
+
+    echo "当前代理服务器：$http_proxy"
+    export http_proxy=$http_proxy && export https_proxy=$http_proxy
+
+
+}

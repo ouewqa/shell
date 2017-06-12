@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+alias phpize='/usr/local/php/bin/phpize'
+alias node='nodejs'
+
+alias docker_clean_images='docker rmi $(docker images -a --filter=dangling=true -q)'
+alias docker_clean_ps='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'
+
+
+alias update='source ~/.bashrc'
+alias top='htop'
+alias vi='vim'
+
+alias gp='git pull'
+alias gb='git branch'
+alias gs='git status'
+
+alias dev='cd ~/developments/github/exercises/docker/development_environment/ && make up'
+alias xdebug='export XDEBUG_CONFIG="idekey=PHPSTORM"'
+alias jbl='sudo ~/developments/github/JetBrainsLicenseServer/IntelliJIDEALicenseServer_linux_amd64'
+
+# dev@10.5.23.211
+alias ssh_dev='ssh dev@10.5.23.211'
