@@ -10,25 +10,26 @@ function gc(){
     fi
 }
 
+# 自动更新
 function autoGitCheckOut(){
     local branch=$1
 
     if [[ $PWD =~ 'yunkerefactor' ]]; then
 
-        git checkout master
-        git pull
-        git checkout ${branch}
+        git checkout master \
+        && git fetch \
+        && git checkout ${branch}
 
-        cd ../yunke-public
-        git checkout master
-        git pull
-        git checkout ${branch}
+        #cd ../yunke-public
+        #git checkout master
+        #git pull
+        #git checkout ${branch}
 
-        cd ../frontend
-        git checkout master
-        git pull
-        git checkout ${branch}
-        sudo npm run build  -- qmyx
+        #cd ../frontend
+        #git checkout master
+        #git pull
+        #git checkout ${branch}
+        #sudo npm run build  -- qmyx
         #sudo npm run build  -- datav
         #sudo npm run build  -- mysoft_back
 
