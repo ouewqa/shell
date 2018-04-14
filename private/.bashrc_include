@@ -13,15 +13,23 @@ source ${CURRENT_PATH}/.bashrc_function
 # docker
 [ -f ~/.bashrc_docker ] && . ~/.bashrc_docker
 
+#[ -f ~/.oh-my-zsh/plugins/incr/incr-0.2.zsh ] && . ~/.oh-my-zsh/plugins/incr/incr-0.2.zsh
+
 # oracle jdk environment
 #export JAVA_HOME=/opt/Java/jdk1.8.0_131 ## 这里要注意目录要换成自己解压的jdk 目录
 #export JRE_HOME=${JAVA_HOME}/jre
 #export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 #export PATH=${JAVA_HOME}/bin:$PATH
 
+# 添加goland
+export GOPATH=/usr/local/go/bin
+export PATH=$PATH:$GOPATH
+
 # hadoop
 export PATH=$PATH:/usr/local/hadoop/sbin:/usr/local/hadoop/bin
 
+# cuda
+export PATH=$PATH:/usr/local/cuda/bin
 
 # 自动跳转
 [[ -s /home/yuyj/.autojump/etc/profile.d/autojump.sh ]] && source /home/yuyj/.autojump/etc/profile.d/autojump.sh

@@ -1,0 +1,4 @@
+cd ~/.local/share/nautilus/scripts
+ln -s ~/developments/github/shell/beyond\ compare/compare.sh ./compare
+ln -s ~/developments/github/shell/beyond\ compare/select_for_compare.sh ./select_for_compare
+ln -s ~/developments/github/shell/beyond\ compare/compare_to_selected.sh  ./compare_to_selected

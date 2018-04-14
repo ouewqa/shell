@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-function gc(){
+# git checkout
+function gitc(){
     local branch=$1
 
     if [ -z ${branch} ]; then
@@ -10,6 +11,17 @@ function gc(){
     fi
 }
 
+function apt-search(){
+
+    if [ -z $1 ]; then
+        echo '请输入 apt-cache 搜索关键字'
+    else
+        sudo apt-cache search $1
+    fi
+
+
+}
+
 # 自动更新
 function autoGitCheckOut(){
     local branch=$1
@@ -17,7 +29,7 @@ function autoGitCheckOut(){
     if [[ $PWD =~ 'yunkerefactor' ]]; then
 
         git checkout master \
-        && git fetch \
+        && git pull \
         && git checkout ${branch}
 
         #cd ../yunke-public
@@ -45,8 +57,8 @@ function autoGitCheckOut(){
 
 DAILI_INDEX=1
 function daili(){
-    proxy_1=http://10.5.212.165:8888
-    proxy_2=http://127.0.0.1:33441
+    proxy_1=http://10.5.23.90:8888
+    proxy_2=http://127.0.0.1:43889
 
     #echo "原代理服务器：$http_proxy"
 
@@ -63,6 +75,56 @@ function daili(){
 
     echo "当前代理服务器：$http_proxy"
     export http_proxy=$http_proxy && export https_proxy=$http_proxy
+}
+
+function env_init(){
+    sudo apt-get install -y \
+        vim \
+        git \
+        libgearman-dev \
+        libmemcached-dev \
+        libmcrypt-dev \
+        libfreetype6-dev \
+        libpng12-dev \
+        libmagickwand-dev \
+        libmagickcore-dev \
+        build-essential \
+        binutils-doc \
+        software-properties-common \
+        libboost-all-dev \
+        gperf \
+        libevent-dev \
+        uuid-dev \
+        wget \
+        libsqlite3-dev \
+        libpq-dev \
+        gedit-plugins \
+        zsh \
+        fonts-powerline \
+        openssh-client \
+        openssh-server \
+        calibre \
+        python3-pip \
+        libgcrypt20-dev
 
 
+        pip3 install numpy
+        pip3 install scipy
+        pip3 install matplotlib
+
+        # curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+        # sudo apt-get install -y nodejs
+}
+
+function start_xmr(){
+    stop_xmr
+    cd ~/developments/github/xmr-stak-cpu/ && nohup ./bin/xmr-stak-cpu &
+}
+
+function stop_xmr(){
+    local PROCESS_COUNT=`ps -ef | grep 'xmr-stak-cpu' | grep -v 'grep' | wc -l`
+    echo ${PROCESS_COUNT}
+    if [ ${PROCESS_COUNT} -gt 0 ]; then
+        ps -ef | grep 'xmr-stak-cpu' | grep -v 'grep' | awk '{print $2}' | xargs kill -9
+    fi
 }

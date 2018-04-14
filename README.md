@@ -1,7 +1,7 @@
 # shell
 收集工作中使用的shell脚本
 ```
-vim ~/.barshrc
+vim ~/.bashrc
 ```
 在最后一行加入下面，路径需要调整一下
 ```
