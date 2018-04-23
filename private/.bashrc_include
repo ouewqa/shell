@@ -13,7 +13,7 @@ source ${CURRENT_PATH}/.bashrc_function
 # docker
 [ -f ~/.bashrc_docker ] && . ~/.bashrc_docker
 
-#[ -f ~/.oh-my-zsh/plugins/incr/incr-0.2.zsh ] && . ~/.oh-my-zsh/plugins/incr/incr-0.2.zsh
+#[[ -s /home/yuyu/.oh-my-zsh/plugins/incr/incr-0.2.zsh ]] && source /home/yuyj/.oh-my-zsh/plugins/incr/incr-0.2.zsh
 
 # oracle jdk environment
 #export JAVA_HOME=/opt/Java/jdk1.8.0_131 ## 这里要注意目录要换成自己解压的jdk 目录
