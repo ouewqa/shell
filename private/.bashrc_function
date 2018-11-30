@@ -57,8 +57,9 @@ function autoGitCheckOut(){
 
 DAILI_INDEX=1
 function daili(){
-    proxy_1=http://10.5.23.90:8888
-    proxy_2=http://127.0.0.1:43889
+
+    proxy_1=http://10.5.212.165:8888
+    proxy_2=http://127.0.0.1:8787
 
     #echo "原代理服务器：$http_proxy"
 

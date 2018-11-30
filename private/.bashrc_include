@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-CURRENT_PATH='/home/yuyj/developments/github/shell/private'
+CURRENT_PATH='~/developments/github/shell/private'
+CURRENT_OS=`uname`
 
-source ${CURRENT_PATH}/.bashrc_alias
-source ${CURRENT_PATH}/.bashrc_variables
-source ${CURRENT_PATH}/.bashrc_function
+if [ -f ${CURRENT_PATH}/${CURRENT_OS}
+. ${CURRENT_PATH}/.bashrc_alias
+. ${CURRENT_PATH}/.bashrc_variables
+. ${CURRENT_PATH}/.bashrc_function
 
 # 命令执行完通知
 #source /usr/share/undistract-me/long-running.bash
